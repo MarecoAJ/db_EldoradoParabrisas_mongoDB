@@ -1,25 +1,25 @@
 use("db_eldoradoparabrisas");
 
 db.createCollection("tipos_personas", {
-    validator:{
-        $jsonSchema:{
+    validator: {
+        $jsonSchema: {
             bsonType: "object",
-            required: [],
+            required: ["descrip_tipo_persona", "fecha_insercion", "estado"],
             additionalProperties: false,
-            properties:{
+            properties: {
                 _id: {
                     bsonType: "int"
                 },
-                descrip_tipo_persona:{
+                descrip_tipo_persona: {
                     bsonType: "string"
                 },
-                fecha_insercion:{
+                fecha_insercion: {
                     bsonType: "date"
                 },
-                estado:{
+                estado: {
                     bsonType: "int",
-                    minimum:0,
-                    maximum:1
+                    minimum: 0,
+                    maximum: 1
                 }
             }
         }
