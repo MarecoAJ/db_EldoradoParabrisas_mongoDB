@@ -1,0 +1,27 @@
+use("db_eldoradoparabrisas");
+
+db.createCollection("tipos_pagos", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["descrip_tipo_pago", "fecha_insercion", "estado"],
+            additionalProperties: false,
+            properties: {
+                _id: {
+                    bsonType: "int"
+                },
+                descrip_tipo_pago: {
+                    bsonType: "string"
+                },
+                fecha_insercion: {
+                    bsonType: "date"
+                },
+                estado: {
+                    bsonType: "int",
+                    minimum: 0,
+                    maximum: 1
+                }
+            }
+        }
+    }
+});
