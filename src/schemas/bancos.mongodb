@@ -1,0 +1,27 @@
+use("db_eldoradoparabrisas");
+
+db.createCollection("bancos", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["nombre_banco", "fecha_insercion", "estado"],
+            additionalProperties: false,
+            properties: {
+                _id: {
+                    bsonType: "int"
+                },
+                nombre_banco: {
+                    bsonType: "string"
+                },
+                fecha_insercion: {
+                    bsonType: "date"
+                },
+                estado: {
+                    bsonType: "int",
+                    minimum: 0,
+                    maximum: 1
+                }
+            }
+        }
+    }
+});
