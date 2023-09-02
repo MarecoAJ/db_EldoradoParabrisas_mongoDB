@@ -4,16 +4,16 @@ db.createCollection("productos", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["descrip_produc", "marca_id", "cant_existencia", "fecha_insercion", "estado"],
+            required: ["codigo_produc", "descrip_produc", "marca_id", "cant_existencia", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
-                _id: {
+                codigo_produc: {
                     bsonType: "int"
                 },
                 descrip_produc: {
                     bsonType: "string"
                 },
-                marca_id:{
+                marca_id: {
                     bsonType: "int"
                 },
                 cant_existencia: {
@@ -31,3 +31,12 @@ db.createCollection("productos", {
         }
     }
 });
+
+db.getCollection("productos").createIndex(
+    {
+        codigo_produc: 1
+    },
+    {
+        name: "idx_codigo_produc", unique: true
+    }
+);
