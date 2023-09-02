@@ -1,0 +1,39 @@
+use("db_eldoradoparabrisas");
+
+db.createCollection("personas", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["dni_cuit", "nombre_completo", "tipo_persona_id", "fecha_insercion", "estado"],
+            additionalProperties: false,
+            properties: {
+                dni_cuit: {
+                    bsonType: "int"
+                },
+                nombre_completo: {
+                    bsonType: "string"
+                },
+                tipo_persona_id: {
+                    bsonType: "int"
+                },
+                fecha_insercion: {
+                    bsonType: "date"
+                },
+                estado: {
+                    bsonType: "int",
+                    minimum: 0,
+                    maximum: 1
+                }
+            }
+        }
+    }
+});
+
+db.getCollection("personas").createIndex(
+    {
+        dni_cuit: 1
+    },
+    {
+        name: "idx_dni_cuit", unique: true
+    }
+);
