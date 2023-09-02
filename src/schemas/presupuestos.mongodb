@@ -1,0 +1,27 @@
+use("db_eldoradoparabrisas");
+
+db.createCollection("presupuestos", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["tipo_presup_id", "total_presup", "fecha_insercion", "estado"],
+            additionalProperties: false,
+            properties: {
+                tipo_presup_id: {
+                    bsonType: "int"
+                },
+                total_presup: {
+                    bsonType: "double"
+                },
+                fecha_insercion: {
+                    bsonType: "date"
+                },
+                estado: {
+                    bsonType: "int",
+                    minimum: 0,
+                    maximum: 1
+                }
+            }
+        }
+    }
+});
