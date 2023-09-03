@@ -1,0 +1,27 @@
+use("db_eldoradoparabrisas");
+
+db.createCollection("precios_servicios", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["servicio_id", "precio_servicio", "fecha_insercion", "estado"],
+            additionalProperties: false,
+            properties: {
+                servicio_id: {
+                    bsonType: "int"
+                },
+                precio_servicio: {
+                    bsonType: "double"
+                },
+                fecha_insercion: {
+                    bsonType: "date"
+                },
+                estado: {
+                    bsonType: "int",
+                    minimum: 0,
+                    maximum: 1
+                }
+            }
+        }
+    }
+});
