@@ -1,0 +1,4 @@
+use("db_eldoradoparabrisas");
+//db.presup_produc.drop();
+//db.presup_produc.dropIndex("");
+db.presup_produc.getIndexes();

@@ -1,0 +1,43 @@
+use("db_eldoradoparabrisas");
+
+db.createCollection("presup_produc", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["presup_id", "precio_produc_id", "cant_produc", "subtotal_presup_produc", "fecha_insercion", "estado"],
+            additionalProperties: false,
+            properties: {
+                presup_id: {
+                    bsonType: "int"
+                },
+                precio_produc_id: {
+                    bsonType: "int"
+                },
+                cant_produc: {
+                    bsonType: "int"
+                },
+                subtotal_presup_produc: {
+                    bsonType: "double"
+                },
+                fecha_insercion: {
+                    bsonType: "date"
+                },
+                estado: {
+                    bsonType: "int",
+                    minimum: 0,
+                    maximum: 1
+                }
+            }
+        }
+    }
+});
+
+db.getCollection("presup_produc").createIndex(
+    {
+        presup_id: 1,
+        precio_produc_id: 1,
+    },
+    {
+        name: "idx_presup_produc", unique: true
+    }
+);
