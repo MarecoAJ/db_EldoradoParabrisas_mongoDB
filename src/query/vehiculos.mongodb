@@ -1,0 +1,4 @@
+use("db_eldoradoparabrisas");
+//db.vehiculos.drop();
+//db.vehiculos.dropIndex("");
+db.vehiculos.getIndexes();

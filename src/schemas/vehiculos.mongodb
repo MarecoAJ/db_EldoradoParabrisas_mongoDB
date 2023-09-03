@@ -1,0 +1,39 @@
+use("db_eldoradoparabrisas");
+
+db.createCollection("vehiculos", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["dominio_vehiculo", "modelo_id", "annio", "fecha_insercion", "estado"],
+            additionalProperties: false,
+            properties: {
+                dominio_vehiculo: {
+                    bsonType: "string"
+                },
+                modelo_id: {
+                    bsonType: "int"
+                },
+                annio: {
+                    bsonType: "int"
+                },
+                fecha_insercion: {
+                    bsonType: "date"
+                },
+                estado: {
+                    bsonType: "int",
+                    minimum: 0,
+                    maximum: 1
+                }
+            }
+        }
+    }
+});
+
+db.getCollection("vehiculos").createIndex(
+    {
+        dominio_vehiculo: 1
+    },
+    {
+        name: "idx_dominio_vehiculo", unique: true
+    }
+);
