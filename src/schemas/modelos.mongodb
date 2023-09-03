@@ -1,0 +1,27 @@
+use("db_eldoradoparabrisas");
+
+db.createCollection("modelos", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["marca_id", "descrip_modelo", "fecha_insercion", "estado"],
+            additionalProperties: false,
+            properties: {
+                marca_id: {
+                    bsonType: "int"
+                },
+                descrip_modelo: {
+                    bsonType: "string"
+                },
+                fecha_insercion: {
+                    bsonType: "date"
+                },
+                estado: {
+                    bsonType: "int",
+                    minimum: 0,
+                    maximum: 1
+                }
+            }
+        }
+    }
+});
