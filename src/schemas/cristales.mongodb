@@ -1,0 +1,44 @@
+use("db_eldoradoparabrisas");
+
+db.createCollection("cristales", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["tipo_cristal_id", "produc_codigo", "modelo_id", "cant_minima", "fecha_insercion", "estado"],
+            additionalProperties: false,
+            properties: {
+                tipo_cristal_id: {
+                    bsonType: "int"
+                },
+                produc_codigo: {
+                    bsonType: "int"
+                },
+                modelo_id: {
+                    bsonType: "int"
+                },
+                cant_minima: {
+                    bsonType: "int"
+                },
+                fecha_insercion: {
+                    bsonType: "date"
+                },
+                estado: {
+                    bsonType: "int",
+                    minimum: 0,
+                    maximum: 1
+                }
+            }
+        }
+    }
+});
+
+db.getCollection("cristales").createIndex(
+    {
+        tipo_cristal_id: 1,
+        produc_codigo: 1,
+        modelo_id: 1
+    },
+    {
+        name: "idx_cristales", unique: true
+    }
+);

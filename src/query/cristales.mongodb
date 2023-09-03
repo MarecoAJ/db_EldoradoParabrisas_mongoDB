@@ -1,0 +1,4 @@
+use("db_eldoradoparabrisas");
+//db.cristales.drop();
+//db.cristales.dropIndex("");
+db.cristales.getIndexes();
