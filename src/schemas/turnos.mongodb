@@ -1,0 +1,27 @@
+use("db_eldoradoparabrisas");
+
+db.createCollection("turnos", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["dominio_vehiculo", "fecha_hora", "fecha_insercion", "estado"],
+            additionalProperties: false,
+            properties: {
+                dominio_vehiculo: {
+                    bsonType: "string"
+                },
+                fecha_hora: {
+                    bsonType: "date"
+                },
+                fecha_insercion: {
+                    bsonType: "date"
+                },
+                estado: {
+                    bsonType: "int",
+                    minimum: 0,
+                    maximum: 1
+                }
+            }
+        }
+    }
+});
