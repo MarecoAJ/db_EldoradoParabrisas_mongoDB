@@ -1,0 +1,43 @@
+use("db_eldoradoparabrisas");
+
+db.createCollection("asegurados", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["seguro_id", "cuit_dni", "num_poliza", "num_siniestro", "fecha_insercion", "estado"],
+            additionalProperties: false,
+            properties: {
+                seguro_id: {
+                    bsonType: "int"
+                },
+                cuit_dni: {
+                    bsonType: "int"
+                },
+                num_poliza: {
+                    bsonType: "int"
+                },
+                num_siniestro: {
+                    bsonType: "int"
+                },
+                fecha_insercion: {
+                    bsonType: "date"
+                },
+                estado: {
+                    bsonType: "int",
+                    minimum: 0,
+                    maximum: 1
+                },
+            }
+        }
+    }
+});
+
+db.getCollection("asegurados").createIndex(
+    {
+        seguro_id: 1,
+        cuit_dni: 1,
+    },
+    {
+        name: "idx_asegurados", unique: true
+    }
+);
