@@ -1,0 +1,33 @@
+use("db_eldoradoparabrisas");
+
+db.createCollection("contactos", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["cuit_dni", "correo_electronico", "tel_fijo", "tel_celular", "fecha_insercion", "estado"],
+            additionalProperties: false,
+            properties: {
+                cuit_dni: {
+                    bsonType: "int"
+                },
+                correo_electronico: {
+                    bsonType: "string"
+                },
+                tel_fijo: {
+                    bsonType: "string"
+                },
+                tel_celular: {
+                    bsonType: "string"
+                },
+                fecha_insercion: {
+                    bsonType: "date"
+                },
+                estado: {
+                    bsonType: "int",
+                    minimum: 0,
+                    maximum: 1
+                }
+            }
+        }
+    }
+});
