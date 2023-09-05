@@ -1,0 +1,30 @@
+use("db_eldoradoparabrisas");
+
+db.createCollection("pedidos", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["fecha_pedido", "produc_codigo", "cant_pedida", "fecha_insercion", "estado"],
+            additionalProperties: false,
+            properties: {
+                fecha_pedido: {
+                    bsonType: "date"
+                },
+                produc_codigo: {
+                    bsonType: "int"
+                },
+                cant_pedida: {
+                    bsonType: "int"
+                },
+                fecha_insercion: {
+                    bsonType: "date"
+                },
+                estado: {
+                    bsonType: "int",
+                    minimum: 0,
+                    maximum: 1
+                }
+            }
+        }
+    }
+});
