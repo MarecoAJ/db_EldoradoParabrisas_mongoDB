@@ -1,0 +1,45 @@
+use("db_eldoradoparabrisas");
+
+db.createCollection("examenes_vehiculos", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["num_examen", "dominio_vehiculo", "cuit_dni", "examinador", "fecha_hora", "fecha_insercion", "estado"],
+            additionalProperties: false,
+            properties: {
+                num_examen: {
+                    bsonType: "int"
+                },
+                dominio_vehiculo: {
+                    bsonType: "string"
+                },
+                cuit_dni: {
+                    bsonType: "int"
+                },
+                examinador: {
+                    bsonType: "int"
+                },
+                fecha_hora: {
+                    bsonType: "date"
+                },
+                fecha_insercion: {
+                    bsonType: "date"
+                },
+                estado: {
+                    bsonType: "int",
+                    minimum: 0,
+                    maximum: 1
+                }
+            }
+        }
+    }
+});
+
+db.getCollection("examenes_vehiculos").createIndex(
+    {
+        num_examen: 1
+    },
+    {
+        name: "idx_examenes_vehiculos", unique: true
+    }
+);
