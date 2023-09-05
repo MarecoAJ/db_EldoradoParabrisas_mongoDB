@@ -1,0 +1,36 @@
+use("db_eldoradoparabrisas");
+
+db.createCollection("direcciones", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["ciudad_id", "calle", "numero", "piso", "depto", "fecha_insercion", "estado"],
+            additionalProperties: false,
+            properties: {
+                ciudad_id: {
+                    bsonType: "int"
+                },
+                calle: {
+                    bsonType: "string"
+                },
+                numero: {
+                    bsonType: "int"
+                },
+                piso: {
+                    bsonType: "int"
+                },
+                depto: {
+                    bsonType: "string"
+                },
+                fecha_insercion: {
+                    bsonType: "date"
+                },
+                estado: {
+                    bsonType: "int",
+                    minimum: 0,
+                    maximum: 1
+                }
+            }
+        }
+    }
+});
