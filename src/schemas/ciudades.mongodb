@@ -1,0 +1,30 @@
+use("db_eldoradoparabrisas");
+
+db.createCollection("ciudades", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["provici_id", "nombre_ciudad", "cp", "fecha_insercion", "estado"],
+            additionalProperties: false,
+            properties: {
+                provincia_id: {
+                    bsonType: "int"
+                },
+                nombre_ciudad: {
+                    bsonType: "string"
+                },
+                cp: {
+                    bsonType: "int"
+                },
+                fecha_insercion: {
+                    bsonType: "date"
+                },
+                estado: {
+                    bsonType: "int",
+                    minimum: 0,
+                    maximum: 1
+                }
+            }
+        }
+    }
+});
