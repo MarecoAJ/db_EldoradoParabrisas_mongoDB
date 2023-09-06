@@ -1,0 +1,4 @@
+use("db_eldoradoparabrisas");
+//db.direccion_persona.drop();
+//db.direccion_persona.dropIndex("");
+db.direccion_persona.getIndexes();
