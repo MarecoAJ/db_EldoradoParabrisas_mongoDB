@@ -1,0 +1,24 @@
+use("db_eldoradoparabrisas");
+
+db.createCollection("detalles_examen", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["examen_num", "fecha_insercion", "estado"],
+            additionalProperties: false,
+            properties: {
+                examen_num: {
+                    bsonType: "int"
+                },
+                fecha_insercion: {
+                    bsonType: "date"
+                },
+                estado: {
+                    bsonType: "int",
+                    minimum: 0,
+                    maximum: 1
+                }
+            }
+        }
+    }
+});
