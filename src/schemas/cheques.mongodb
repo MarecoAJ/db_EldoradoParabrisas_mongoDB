@@ -1,0 +1,59 @@
+use("db_eldoradoparabrisas");
+
+db.createCollection("cheques", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["num_cheque", "tipo_cheque_id", "detalle_mov_id", "fecha_cheque",
+                "fecha_cobro", "banco_id", "direccion_id", "cuit_dni", "monto_cheque",
+                "fecha_insercion", "estado"],
+            additionalProperties: false,
+            properties: {
+                num_cheque: {
+                    bsonType: "int"
+                },
+                tipo_cheque_id: {
+                    bsonType: "int"
+                },
+                detalle_mov_id: {
+                    bsonType: "int"
+                },
+                fecha_cheque: {
+                    bsonType: "int"
+                },
+                fecha_cobro: {
+                    bsonType: "int"
+                },
+                banco_id: {
+                    bsonType: "int"
+                },
+                direccion_id: {
+                    bsonType: "int"
+                },
+                cuit_dni: {
+                    bsonType: "int"
+                },
+                monto_cheque: {
+                    bsonType: "double"
+                },
+                fecha_insercion: {
+                    bsonType: "date"
+                },
+                estado: {
+                    bsonType: "int",
+                    minimum: 0,
+                    maximum: 1
+                }
+            }
+        }
+    }
+});
+
+db.getCollection("cheques").createIndex(
+    {
+        num_cheque: 1
+    },
+    {
+        name: "idx_cheques", unique: true
+    }
+);
