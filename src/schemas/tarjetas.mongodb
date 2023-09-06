@@ -1,0 +1,43 @@
+use("db_eldoradoparabrisas");
+
+db.createCollection("tarjetas", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["detalle_mov_id", "tipo_tarjeta_id", "banco_id", "num_comp",
+                "num_lote", "num_tarjeta", "monto_tarjetas", "fecha_insercion", "estado"],
+            additionalProperties: false,
+            properties: {
+                detalle_mov_id: {
+                    bsonType: "int"
+                },
+                tipo_tarjeta_id: {
+                    bsonType: "int"
+                },
+                banco_id: {
+                    bsonType: "int"
+                },
+                num_comp: {
+                    bsonType: "int"
+                },
+                num_lote: {
+                    bsonType: "int"
+                },
+                num_tarjeta: {
+                    bsonType: "int"
+                },
+                monto_tarjetas: {
+                    bsonType: "double"
+                },
+                fecha_insercion: {
+                    bsonType: "date"
+                },
+                estado: {
+                    bsonType: "int",
+                    minimum: 0,
+                    maximum: 1
+                }
+            }
+        }
+    }
+});
