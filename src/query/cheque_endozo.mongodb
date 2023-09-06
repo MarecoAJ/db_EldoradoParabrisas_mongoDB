@@ -1,0 +1,4 @@
+use("db_eldoradoparabrisas");
+//db.cheque_endozo.drop();
+//db.cheque_endozo.dropIndex("");
+db.cheque_endozo.getIndexes();

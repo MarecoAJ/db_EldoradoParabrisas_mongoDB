@@ -1,0 +1,37 @@
+use("db_eldoradoparabrisas");
+
+db.createCollection("cheque_endozo", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["cheque_num", "cuit_dni", "fecha_insercion", "estado"],
+            additionalProperties: false,
+            properties: {
+                cheque_num: {
+                    bsonType: "int"
+                },
+                cuit_dni: {
+                    bsonType: "int"
+                },
+                fecha_insercion: {
+                    bsonType: "date"
+                },
+                estado: {
+                    bsonType: "int",
+                    minimum: 0,
+                    maximum: 1
+                }
+            }
+        }
+    }
+});
+
+db.getCollection("cheque_endozo").createIndex(
+    {
+        cheque_num: 1,
+        cuit_dni: 1
+    },
+    {
+        name: "idx_cheque_endozo", unique: true
+    }
+);
