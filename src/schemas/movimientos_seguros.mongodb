@@ -1,0 +1,41 @@
+use("db_eldoradoparabrisas");
+
+db.createCollection("movimientos_seguros", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["movimiento_id", "seguro_id", "cuit_dni", "fecha_insercion", "estado"],
+            additionalProperties: false,
+            properties: {
+                movimiento_id: {
+                    bsonType: "int"
+                },
+                seguro_id: {
+                    bsonType: "int"
+                },
+                cuit_dni: {
+                    bsonType: "int"
+                },
+                fecha_insercion: {
+                    bsonType: "date"
+                },
+                estado: {
+                    bsonType: "int",
+                    minimum: 0,
+                    maximum: 1
+                }
+            }
+        }
+    }
+});
+
+db.getCollection("movimientos_seguros").createIndex(
+    {
+        movimiento_id: 1,
+        seguro_id: 1,
+        cuit_dni: 1
+    },
+    {
+        name: "idx_movimientos_seguros", unique: true
+    }
+);

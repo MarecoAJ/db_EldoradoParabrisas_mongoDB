@@ -1,0 +1,4 @@
+use("db_eldoradoparabrisas");
+//db.movimientos_seguros.drop();
+//db.movimientos_seguros.dropIndex("");
+db.movimientos_seguros.getIndexes();
