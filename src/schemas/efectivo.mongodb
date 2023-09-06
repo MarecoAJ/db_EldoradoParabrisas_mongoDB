@@ -1,0 +1,27 @@
+use("db_eldoradoparabrisas");
+
+db.createCollection("efectivo", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["detalle_mov_id", "monto_efec", "fecha_insercion", "estado"],
+            additionalProperties: false,
+            properties: {
+                detalle_mov_id: {
+                    bsonType: "int"
+                },
+                monto_efec: {
+                    bsonType: "double"
+                },
+                fecha_insercion: {
+                    bsonType: "date"
+                },
+                estado: {
+                    bsonType: "int",
+                    minimum: 0,
+                    maximum: 1
+                }
+            }
+        }
+    }
+});
