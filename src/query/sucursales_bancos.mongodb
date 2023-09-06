@@ -1,0 +1,4 @@
+use("db_eldoradoparabrisas");
+//db.sucursales_bancos.drop();
+//db.sucursales_bancos.dropIndex("");
+db.sucursales_bancos.getIndexes();

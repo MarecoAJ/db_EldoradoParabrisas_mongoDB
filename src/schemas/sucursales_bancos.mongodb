@@ -1,0 +1,37 @@
+use("db_eldoradoparabrisas");
+
+db.createCollection("sucursales_bancos", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["banco_id", "direccion_id", "fecha_insercion", "estado"],
+            additionalProperties: false,
+            properties: {
+                banco_id: {
+                    bsonType: "int"
+                },
+                direccion_id: {
+                    bsonType: "int"
+                },
+                fecha_insercion: {
+                    bsonType: "date"
+                },
+                estado: {
+                    bsonType: "int",
+                    minimum: 0,
+                    maximum: 1
+                }
+            }
+        }
+    }
+});
+
+db.getCollection("sucursales_bancos").createIndex(
+    {
+        banco_id: 1,
+        direccion_id: 1
+    },
+    {
+        name: "idx_sucursales_bancos", unique: true
+    }
+);
