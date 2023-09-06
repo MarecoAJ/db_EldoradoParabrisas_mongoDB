@@ -1,0 +1,27 @@
+use("db_eldoradoparabrisas");
+
+db.createCollection("detalles_movimientos", {
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["movimiento_id", "tipo_pago_id", "fecha_insercion", "estado"],
+            additionalProperties: false,
+            properties: {
+                movimiento_id: {
+                    bsonType: "int"
+                },
+                tipo_pago_id: {
+                    bsonType: "int"
+                },
+                fecha_insercion: {
+                    bsonType: "date"
+                },
+                estado: {
+                    bsonType: "int",
+                    minimum: 0,
+                    maximum: 1
+                }
+            }
+        }
+    }
+});
