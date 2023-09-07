@@ -7,9 +7,6 @@ db.createCollection("tipos_cheques", {
             required: ["descrip_tipo_cheque", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
-                _id: {
-                    bsonType: "int"
-                },
                 descrip_tipo_cheque: {
                     bsonType: "string"
                 },

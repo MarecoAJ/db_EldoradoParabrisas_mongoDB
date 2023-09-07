@@ -7,9 +7,6 @@ db.createCollection("bancos", {
             required: ["nombre_banco", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
-                _id: {
-                    bsonType: "int"
-                },
                 nombre_banco: {
                     bsonType: "string"
                 },

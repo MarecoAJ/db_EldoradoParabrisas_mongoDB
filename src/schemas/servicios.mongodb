@@ -7,9 +7,6 @@ db.createCollection("servicios", {
             required: ["descrip_servicio", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
-                _id: {
-                    bsonType: "int"
-                },
                 descrip_servicio: {
                     bsonType: "string"
                 },

@@ -7,9 +7,6 @@ db.createCollection("paises", {
             required: ["descrip_pais", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
-                _id: {
-                    bsonType: "int"
-                },
                 descrip_pais: {
                     bsonType: "string"
                 },

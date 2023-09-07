@@ -7,9 +7,6 @@ db.createCollection("tipos_movimientos", {
             required: ["descrip_tipo_mov", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
-                _id: {
-                    bsonType: "int"
-                },
                 descrip_tipo_mov: {
                     bsonType: "string"
                 },

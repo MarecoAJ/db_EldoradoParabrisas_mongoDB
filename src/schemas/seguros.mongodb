@@ -7,9 +7,6 @@ db.createCollection("seguros", {
             required: ["nombre_seguro", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
-                _id: {
-                    bsonType: "int"
-                },
                 nombre_seguro: {
                     bsonType: "string"
                 },

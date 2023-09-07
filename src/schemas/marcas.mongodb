@@ -7,9 +7,6 @@ db.createCollection("marcas", {
             required: ["descrip_marca", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
-                _id: {
-                    bsonType: "int"
-                },
                 descrip_marca: {
                     bsonType: "string"
                 },

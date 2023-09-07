@@ -7,9 +7,6 @@ db.createCollection("tipos_personas", {
             required: ["descrip_tipo_persona", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
-                _id: {
-                    bsonType: "int"
-                },
                 descrip_tipo_persona: {
                     bsonType: "string"
                 },

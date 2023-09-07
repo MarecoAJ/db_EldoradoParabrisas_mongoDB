@@ -7,9 +7,6 @@ db.createCollection("provincias", {
             required: ["nombre_provincia", "pais_id", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
-                _id: {
-                    bsonType: "int"
-                },
                 nombre_provincia: {
                     bsonType: "string"
                 },

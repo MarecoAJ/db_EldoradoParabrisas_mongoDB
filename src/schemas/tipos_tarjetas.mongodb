@@ -7,9 +7,6 @@ db.createCollection("tipos_tarjetas", {
             required: ["descrip_tipo_tarjeta", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
-                _id: {
-                    bsonType: "int"
-                },
                 descrip_tipo_tarjeta: {
                     bsonType: "string"
                 },

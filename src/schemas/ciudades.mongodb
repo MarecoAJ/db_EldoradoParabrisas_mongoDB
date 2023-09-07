@@ -4,7 +4,7 @@ db.createCollection("ciudades", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["provici_id", "nombre_ciudad", "cp", "fecha_insercion", "estado"],
+            required: ["provicia_id", "nombre_ciudad", "cp", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
                 provincia_id: {

@@ -7,9 +7,6 @@ db.createCollection("tipos_presupuestos", {
             required: ["descrip_tipo_presup", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
-                _id: {
-                    bsonType: "int"
-                },
                 descrip_tipo_presup: {
                     bsonType: "string"
                 },
