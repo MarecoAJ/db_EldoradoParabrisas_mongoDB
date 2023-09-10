@@ -9,13 +9,13 @@ db.createCollection("tarjetas", {
             additionalProperties: false,
             properties: {
                 detalle_mov_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 tipo_tarjeta_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 banco_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 num_comp: {
                     bsonType: "int"

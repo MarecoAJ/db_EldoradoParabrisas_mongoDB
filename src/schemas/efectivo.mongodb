@@ -8,7 +8,7 @@ db.createCollection("efectivo", {
             additionalProperties: false,
             properties: {
                 detalle_mov_id: {
-                    bsonType: "int"
+                    bsonType: "instringt"
                 },
                 monto_efec: {
                     bsonType: "double"

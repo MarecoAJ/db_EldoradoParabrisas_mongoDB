@@ -8,7 +8,7 @@ db.createCollection("asegurados", {
             additionalProperties: false,
             properties: {
                 seguro_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 cuit_dni: {
                     bsonType: "int"

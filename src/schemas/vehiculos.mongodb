@@ -11,7 +11,7 @@ db.createCollection("vehiculos", {
                     bsonType: "string"
                 },
                 modelo_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 annio: {
                     bsonType: "int"

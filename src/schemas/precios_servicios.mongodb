@@ -8,7 +8,7 @@ db.createCollection("precios_servicios", {
             additionalProperties: false,
             properties: {
                 servicio_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 precio_servicio: {
                     bsonType: "double"

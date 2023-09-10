@@ -8,7 +8,7 @@ db.createCollection("direcciones", {
             additionalProperties: false,
             properties: {
                 ciudad_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 calle: {
                     bsonType: "string"

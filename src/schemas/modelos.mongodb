@@ -8,7 +8,7 @@ db.createCollection("modelos", {
             additionalProperties: false,
             properties: {
                 marca_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 descrip_modelo: {
                     bsonType: "string"

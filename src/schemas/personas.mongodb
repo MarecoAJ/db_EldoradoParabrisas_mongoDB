@@ -14,7 +14,7 @@ db.createCollection("personas", {
                     bsonType: "string"
                 },
                 tipo_persona_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 fecha_insercion: {
                     bsonType: "date"

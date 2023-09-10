@@ -8,13 +8,13 @@ db.createCollection("movimientos", {
             additionalProperties: false,
             properties: {
                 tipo_mov_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 num_factura: {
                     bsonType: "int"
                 },
                 presup_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 fecha_insercion: {
                     bsonType: "date"

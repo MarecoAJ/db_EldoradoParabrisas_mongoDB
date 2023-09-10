@@ -8,10 +8,10 @@ db.createCollection("presup_produc", {
             additionalProperties: false,
             properties: {
                 presup_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 precio_produc_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 cant_produc: {
                     bsonType: "int"

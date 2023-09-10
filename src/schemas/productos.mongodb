@@ -14,7 +14,7 @@ db.createCollection("productos", {
                     bsonType: "string"
                 },
                 marca_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 cant_existencia: {
                     bsonType: "int"

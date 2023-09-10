@@ -13,22 +13,22 @@ db.createCollection("cheques", {
                     bsonType: "int"
                 },
                 tipo_cheque_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 detalle_mov_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 fecha_cheque: {
-                    bsonType: "int"
+                    bsonType: "date"
                 },
                 fecha_cobro: {
-                    bsonType: "int"
+                    bsonType: "date"
                 },
                 banco_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 direccion_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 cuit_dni: {
                     bsonType: "int"

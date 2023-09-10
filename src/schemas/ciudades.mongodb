@@ -8,7 +8,7 @@ db.createCollection("ciudades", {
             additionalProperties: false,
             properties: {
                 provincia_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 nombre_ciudad: {
                     bsonType: "string"

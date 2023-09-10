@@ -8,7 +8,7 @@ db.createCollection("presupuestos", {
             additionalProperties: false,
             properties: {
                 tipo_presup_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 total_presup: {
                     bsonType: "double"

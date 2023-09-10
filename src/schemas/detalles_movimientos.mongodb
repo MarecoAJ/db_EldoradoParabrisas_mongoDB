@@ -8,10 +8,10 @@ db.createCollection("detalles_movimientos", {
             additionalProperties: false,
             properties: {
                 movimiento_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 tipo_pago_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 fecha_insercion: {
                     bsonType: "date"

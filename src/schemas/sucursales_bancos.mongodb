@@ -8,10 +8,10 @@ db.createCollection("sucursales_bancos", {
             additionalProperties: false,
             properties: {
                 banco_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 direccion_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 fecha_insercion: {
                     bsonType: "date"

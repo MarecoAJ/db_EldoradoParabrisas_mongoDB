@@ -8,13 +8,13 @@ db.createCollection("cristales", {
             additionalProperties: false,
             properties: {
                 tipo_cristal_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 produc_codigo: {
                     bsonType: "int"
                 },
                 modelo_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 cant_minima: {
                     bsonType: "int"

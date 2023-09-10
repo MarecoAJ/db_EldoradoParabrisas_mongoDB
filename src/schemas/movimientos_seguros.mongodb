@@ -8,10 +8,10 @@ db.createCollection("movimientos_seguros", {
             additionalProperties: false,
             properties: {
                 movimiento_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 seguro_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 cuit_dni: {
                     bsonType: "int"

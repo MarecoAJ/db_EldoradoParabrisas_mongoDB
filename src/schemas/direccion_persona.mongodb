@@ -11,7 +11,7 @@ db.createCollection("direccion_persona", {
                     bsonType: "int"
                 },
                 direccion_id: {
-                    bsonType: "int"
+                    bsonType: "string"
                 },
                 fecha_insercion: {
                     bsonType: "date"
