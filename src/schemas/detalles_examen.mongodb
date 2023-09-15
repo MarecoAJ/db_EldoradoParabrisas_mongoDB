@@ -4,9 +4,12 @@ db.createCollection("detalles_examen", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["examen_num", "fecha_insercion", "estado"],
+            required: ["_id", "examen_num", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
                 examen_num: {
                     bsonType: "int"
                 },

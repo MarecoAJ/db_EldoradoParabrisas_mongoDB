@@ -4,11 +4,15 @@ db.createCollection("turnos", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["dominio_vehiculo", "fecha_hora", "fecha_insercion", "estado"],
+            required: ["_id", "dominio_vehiculo", "fecha_hora", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
                 dominio_vehiculo: {
-                    bsonType: "string"
+                    bsonType: "string",
+                    maxLength: 15
                 },
                 fecha_hora: {
                     bsonType: "date"

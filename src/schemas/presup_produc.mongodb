@@ -4,14 +4,17 @@ db.createCollection("presup_produc", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["presup_id", "precio_produc_id", "cant_produc", "subtotal_presup_produc", "fecha_insercion", "estado"],
+            required: ["_id", "presup_id", "precio_produc_id", "cant_produc", "subtotal_presup_produc", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
                 presup_id: {
-                    bsonType: "string"
+                    bsonType: "objectId"
                 },
                 precio_produc_id: {
-                    bsonType: "string"
+                    bsonType: "objectId"
                 },
                 cant_produc: {
                     bsonType: "int"

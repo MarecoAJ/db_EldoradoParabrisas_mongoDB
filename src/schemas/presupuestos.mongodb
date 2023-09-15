@@ -4,11 +4,14 @@ db.createCollection("presupuestos", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["tipo_presup_id", "total_presup", "fecha_insercion", "estado"],
+            required: ["_id", "tipo_presup_id", "total_presup", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
                 tipo_presup_id: {
-                    bsonType: "string"
+                    bsonType: "objectId"
                 },
                 total_presup: {
                     bsonType: "double"

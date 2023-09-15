@@ -4,14 +4,17 @@ db.createCollection("cristales", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["tipo_cristal_id", "produc_codigo", "modelo_id", "cant_minima", "fecha_insercion", "estado"],
+            required: ["_id", "tipo_cristal_id", "produc_codigo", "modelo_id", "cant_minima", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
                 tipo_cristal_id: {
-                    bsonType: "string"
+                    bsonType: "objectId"
                 },
                 produc_codigo: {
-                    bsonType: "int"
+                    bsonType: ["int", "long"]
                 },
                 modelo_id: {
                     bsonType: "string"

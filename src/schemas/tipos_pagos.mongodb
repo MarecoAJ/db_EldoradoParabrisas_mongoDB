@@ -4,11 +4,15 @@ db.createCollection("tipos_pagos", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["descrip_tipo_pago", "fecha_insercion", "estado"],
+            required: ["_id", "descrip_tipo_pago", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
                 descrip_tipo_pago: {
-                    bsonType: "string"
+                    bsonType: "string",
+                    maxLength: 25
                 },
                 fecha_insercion: {
                     bsonType: "date"

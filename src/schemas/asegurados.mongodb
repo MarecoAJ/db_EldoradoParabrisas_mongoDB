@@ -4,20 +4,23 @@ db.createCollection("asegurados", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["seguro_id", "cuit_dni", "num_poliza", "num_siniestro", "fecha_insercion", "estado"],
+            required: ["_id", "seguro_id", "cuit_dni", "num_poliza", "num_siniestro", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
                 seguro_id: {
-                    bsonType: "string"
+                    bsonType: "objectId"
                 },
                 cuit_dni: {
-                    bsonType: "int"
+                    bsonType: ["int", "long"]
                 },
                 num_poliza: {
-                    bsonType: "int"
+                    bsonType: ["int", "long"]
                 },
                 num_siniestro: {
-                    bsonType: "int"
+                    bsonType: ["int", "long"]
                 },
                 fecha_insercion: {
                     bsonType: "date"

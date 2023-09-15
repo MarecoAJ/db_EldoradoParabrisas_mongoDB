@@ -7,8 +7,12 @@ db.createCollection("bancos", {
             required: ["nombre_banco", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
+                _id: {
+                    bsonType: "object"
+                },
                 nombre_banco: {
-                    bsonType: "string"
+                    bsonType: "string",
+                    maxLength: 45
                 },
                 fecha_insercion: {
                     bsonType: "date"

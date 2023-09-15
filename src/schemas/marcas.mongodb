@@ -4,11 +4,15 @@ db.createCollection("marcas", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["descrip_marca", "fecha_insercion", "estado"],
+            required: ["_id", "descrip_marca", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
+                _id: {
+                    bsonType: "objecId"
+                },
                 descrip_marca: {
-                    bsonType: "string"
+                    bsonType: "string",
+                    maxLength: 25
                 },
                 fecha_insercion: {
                     bsonType: "date"

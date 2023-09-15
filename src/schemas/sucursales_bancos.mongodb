@@ -4,14 +4,17 @@ db.createCollection("sucursales_bancos", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["banco_id", "direccion_id", "fecha_insercion", "estado"],
+            required: ["_id", "banco_id", "direccion_id", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
                 banco_id: {
-                    bsonType: "string"
+                    bsonType: "objectId"
                 },
                 direccion_id: {
-                    bsonType: "string"
+                    bsonType: "objectId"
                 },
                 fecha_insercion: {
                     bsonType: "date"

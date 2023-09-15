@@ -4,11 +4,14 @@ db.createCollection("precios_servicios", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["servicio_id", "precio_servicio", "fecha_insercion", "estado"],
+            required: ["_id", "servicio_id", "precio_servicio", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
                 servicio_id: {
-                    bsonType: "string"
+                    bsonType: "objectId"
                 },
                 precio_servicio: {
                     bsonType: "double"

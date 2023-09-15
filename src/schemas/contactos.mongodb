@@ -4,20 +4,26 @@ db.createCollection("contactos", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["cuit_dni", "correo_electronico", "tel_fijo", "tel_celular", "fecha_insercion", "estado"],
+            required: ["_id", "cuit_dni", "correo_electronico", "tel_fijo", "tel_celular", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
                 cuit_dni: {
-                    bsonType: "int"
+                    bsonType: ["int", "long"]
                 },
                 correo_electronico: {
-                    bsonType: "string"
+                    bsonType: "string",
+                    maxLength: 45
                 },
                 tel_fijo: {
-                    bsonType: "string"
+                    bsonType: "string",
+                    maxLength: 18
                 },
                 tel_celular: {
-                    bsonType: "string"
+                    bsonType: "string",
+                    maxLength: 18
                 },
                 fecha_insercion: {
                     bsonType: "date"

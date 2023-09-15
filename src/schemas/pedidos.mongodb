@@ -4,14 +4,17 @@ db.createCollection("pedidos", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["fecha_pedido", "produc_codigo", "cant_pedida", "fecha_insercion", "estado"],
+            required: ["_id", "fecha_pedido", "produc_codigo", "cant_pedida", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
                 fecha_pedido: {
                     bsonType: "date"
                 },
                 produc_codigo: {
-                    bsonType: "int"
+                    bsonType: ["int", "long"]
                 },
                 cant_pedida: {
                     bsonType: "int"

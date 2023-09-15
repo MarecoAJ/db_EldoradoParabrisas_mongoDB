@@ -4,14 +4,18 @@ db.createCollection("direcciones", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["ciudad_id", "calle", "numero", "piso", "depto", "fecha_insercion", "estado"],
+            required: ["_id", "ciudad_id", "calle", "numero", "piso", "depto", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
                 ciudad_id: {
-                    bsonType: "string"
+                    bsonType: "objectId"
                 },
                 calle: {
-                    bsonType: "string"
+                    bsonType: "string",
+                    maxLength: 35
                 },
                 numero: {
                     bsonType: "int"
@@ -20,7 +24,8 @@ db.createCollection("direcciones", {
                     bsonType: "int"
                 },
                 depto: {
-                    bsonType: "string"
+                    bsonType: "string",
+                    maxLength: 4
                 },
                 fecha_insercion: {
                     bsonType: "date"

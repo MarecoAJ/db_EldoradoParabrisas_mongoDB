@@ -4,11 +4,14 @@ db.createCollection("efectivo", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["detalle_mov_id", "monto_efec", "fecha_insercion", "estado"],
+            required: ["_id", "detalle_mov_id", "monto_efec", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
                 detalle_mov_id: {
-                    bsonType: "instringt"
+                    bsonType: "objectId"
                 },
                 monto_efec: {
                     bsonType: "double"

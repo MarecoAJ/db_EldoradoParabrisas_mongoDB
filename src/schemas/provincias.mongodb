@@ -4,14 +4,18 @@ db.createCollection("provincias", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["nombre_provincia", "pais_id", "fecha_insercion", "estado"],
+            required: ["_id", "nombre_provincia", "pais_id", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
                 nombre_provincia: {
-                    bsonType: "string"
+                    bsonType: "string",
+                    maxLength: 45
                 },
                 pais_id: {
-                    bsonType: "string"
+                    bsonType: "objectId"
                 },
                 fecha_insercion: {
                     bsonType: "date"

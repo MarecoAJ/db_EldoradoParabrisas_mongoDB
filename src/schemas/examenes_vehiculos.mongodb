@@ -4,20 +4,24 @@ db.createCollection("examenes_vehiculos", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["num_examen", "dominio_vehiculo", "cuit_dni", "examinador", "fecha_hora", "fecha_insercion", "estado"],
+            required: ["_id", "num_examen", "dominio_vehiculo", "cuit_dni", "examinador", "fecha_hora", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
                 num_examen: {
                     bsonType: "int"
                 },
                 dominio_vehiculo: {
-                    bsonType: "string"
+                    bsonType: "string",
+                    maxLength: 15
                 },
                 cuit_dni: {
-                    bsonType: "int"
+                    bsonType: ["int", "long"]
                 },
                 examinador: {
-                    bsonType: "int"
+                    bsonType: ["int", "long"]
                 },
                 fecha_hora: {
                     bsonType: "date"

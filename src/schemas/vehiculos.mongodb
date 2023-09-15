@@ -4,14 +4,18 @@ db.createCollection("vehiculos", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["dominio_vehiculo", "modelo_id", "annio", "fecha_insercion", "estado"],
+            required: ["_id", "dominio_vehiculo", "modelo_id", "annio", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
                 dominio_vehiculo: {
-                    bsonType: "string"
+                    bsonType: "string",
+                    maxLength: 15
                 },
                 modelo_id: {
-                    bsonType: "string"
+                    bsonType: "objectId"
                 },
                 annio: {
                     bsonType: "int"

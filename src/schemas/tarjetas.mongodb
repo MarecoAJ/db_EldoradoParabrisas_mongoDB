@@ -4,27 +4,30 @@ db.createCollection("tarjetas", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["detalle_mov_id", "tipo_tarjeta_id", "banco_id", "num_comp",
+            required: ["_id", "detalle_mov_id", "tipo_tarjeta_id", "banco_id", "num_comp",
                 "num_lote", "num_tarjeta", "monto_tarjetas", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
                 detalle_mov_id: {
-                    bsonType: "string"
+                    bsonType: "objectId"
                 },
                 tipo_tarjeta_id: {
-                    bsonType: "string"
+                    bsonType: "objectId"
                 },
                 banco_id: {
-                    bsonType: "string"
+                    bsonType: "objectId"
                 },
                 num_comp: {
-                    bsonType: "int"
+                    bsonType: ["int", "long"]
                 },
                 num_lote: {
-                    bsonType: "int"
+                    bsonType: ["int", "long"]
                 },
                 num_tarjeta: {
-                    bsonType: "int"
+                    bsonType: ["int", "long"]
                 },
                 monto_tarjetas: {
                     bsonType: "double"

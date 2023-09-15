@@ -4,19 +4,22 @@ db.createCollection("cheques", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["num_cheque", "tipo_cheque_id", "detalle_mov_id", "fecha_cheque",
+            required: ["_id", "num_cheque", "tipo_cheque_id", "detalle_mov_id", "fecha_cheque",
                 "fecha_cobro", "banco_id", "direccion_id", "cuit_dni", "monto_cheque",
                 "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
                 num_cheque: {
-                    bsonType: "int"
+                    bsonType: ["int", "long"]
                 },
                 tipo_cheque_id: {
-                    bsonType: "string"
+                    bsonType: "objectId"
                 },
                 detalle_mov_id: {
-                    bsonType: "string"
+                    bsonType: "objectId"
                 },
                 fecha_cheque: {
                     bsonType: "date"
@@ -25,13 +28,13 @@ db.createCollection("cheques", {
                     bsonType: "date"
                 },
                 banco_id: {
-                    bsonType: "string"
+                    bsonType: "objectId"
                 },
                 direccion_id: {
-                    bsonType: "string"
+                    bsonType: "objectId"
                 },
                 cuit_dni: {
-                    bsonType: "int"
+                    bsonType: ["int", "long"]
                 },
                 monto_cheque: {
                     bsonType: "double"

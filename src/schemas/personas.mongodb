@@ -4,17 +4,21 @@ db.createCollection("personas", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["dni_cuit", "nombre_completo", "tipo_persona_id", "fecha_insercion", "estado"],
+            required: ["_id", "dni_cuit", "nombre_completo", "tipo_persona_id", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
                 dni_cuit: {
-                    bsonType: "int"
+                    bsonType: ["int", "long"]
                 },
                 nombre_completo: {
-                    bsonType: "string"
+                    bsonType: "string",
+                    maxLength: 45
                 },
                 tipo_persona_id: {
-                    bsonType: "string"
+                    bsonType: "objectId"
                 },
                 fecha_insercion: {
                     bsonType: "date"

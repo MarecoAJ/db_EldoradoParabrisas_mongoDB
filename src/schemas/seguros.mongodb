@@ -4,11 +4,15 @@ db.createCollection("seguros", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["nombre_seguro", "fecha_insercion", "estado"],
+            required: ["_id", "nombre_seguro", "fecha_insercion", "estado"],
             additionalProperties: false,
             properties: {
+                _id: {
+                    bsonType: "objectId"
+                },
                 nombre_seguro: {
-                    bsonType: "string"
+                    bsonType: "string",
+                    maxLength: 35
                 },
                 fecha_insercion: {
                     bsonType: "date"
